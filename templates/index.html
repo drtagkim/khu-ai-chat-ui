@@ -51,50 +51,53 @@
 
         <!-- Main Content Area (2-Column Layout) -->
         <div class="main-content">
-            <!-- Left Column: Chat Area -->
-            <main class="chat-main left-column">
-                <!-- Header -->
-                <header class="chat-header">
-                    <h3>{{ literals.chat_header_title }}</h3>
-                    <div class="header-actions">
-                        <!-- Language Selector -->
-                        <select id="lang-select" class="lang-selector"
-                            onchange="window.location.href='/?lang=' + this.value;">
-                            <option value="ko" {% if current_lang=='ko' %}selected{% endif %}>한국어</option>
-                            <option value="en" {% if current_lang=='en' %}selected{% endif %}>English</option>
-                            <option value="zh" {% if current_lang=='zh' %}selected{% endif %}>中文</option>
-                        </select>
-                        <button class="icon-btn"><i class="fa-solid fa-download"></i></button>
-                        <button class="icon-btn"><i class="fa-solid fa-gear"></i></button>
-                    </div>
-                </header>
+            <!-- Left Column: Chat Area Wrapper -->
+            <div class="left-column phone-viewport">
+                <!-- Phone Device Container -->
+                <main class="chat-main phone-device">
+                    <!-- Header -->
+                    <header class="chat-header">
+                        <h3>{{ literals.chat_header_title }}</h3>
+                        <div class="header-actions">
+                            <!-- Language Selector -->
+                            <select id="lang-select" class="lang-selector"
+                                onchange="window.location.href='/?lang=' + this.value;">
+                                <option value="ko" {% if current_lang=='ko' %}selected{% endif %}>한국어</option>
+                                <option value="en" {% if current_lang=='en' %}selected{% endif %}>English</option>
+                                <option value="zh" {% if current_lang=='zh' %}selected{% endif %}>中文</option>
+                            </select>
+                            <button class="icon-btn"><i class="fa-solid fa-download"></i></button>
+                            <button class="icon-btn"><i class="fa-solid fa-gear"></i></button>
+                        </div>
+                    </header>
 
-                <!-- Chat Messages -->
-                <div class="chat-messages" id="chat-messages">
-                    <!-- Welcome Message -->
-                    <div class="message ai-message">
-                        <div class="message-avatar"><i class="fa-solid fa-robot"></i></div>
-                        <div class="message-content">
-                            {{ literals.welcome_message | safe }}
+                    <!-- Chat Messages -->
+                    <div class="chat-messages" id="chat-messages">
+                        <!-- Welcome Message -->
+                        <div class="message ai-message">
+                            <div class="message-avatar"><i class="fa-solid fa-robot"></i></div>
+                            <div class="message-content">
+                                {{ literals.welcome_message | safe }}
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- Input Area -->
-                <div class="chat-input-container">
-                    <form id="chat-form">
-                        <div class="input-wrapper">
-                            <textarea id="chat-input" placeholder="{{ literals.input_placeholder }}"
-                                rows="1"></textarea>
-                            <button type="submit" id="send-btn" disabled><i
-                                    class="fa-solid fa-paper-plane"></i></button>
-                        </div>
-                        <div class="input-footer">
-                            {{ literals.input_footer_warning }}
-                        </div>
-                    </form>
-                </div>
-            </main>
+                    <!-- Input Area -->
+                    <div class="chat-input-container">
+                        <form id="chat-form">
+                            <div class="input-wrapper">
+                                <textarea id="chat-input" placeholder="{{ literals.input_placeholder }}"
+                                    rows="1"></textarea>
+                                <button type="submit" id="send-btn" disabled><i
+                                        class="fa-solid fa-paper-plane"></i></button>
+                            </div>
+                            <div class="input-footer">
+                                {{ literals.input_footer_warning }}
+                            </div>
+                        </form>
+                    </div>
+                </main>
+            </div>
 
             <!-- Right Column: Additional Tasks (2-Row Layout) -->
             <aside class="right-column">

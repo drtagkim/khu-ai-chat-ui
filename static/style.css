@@ -199,8 +199,14 @@ body {
     flex: 6;
     /* 60% of Width for Chat */
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     border-right: 1px solid var(--border-color);
+    background-color: #F8FAFC;
+    /* Subtle background for the viewport */
+    padding: 2rem;
+    position: relative;
+    height: 100%;
 }
 
 .right-column {
@@ -211,10 +217,43 @@ body {
     background-color: var(--bg-off-white);
 }
 
-/* Chat Main (Left Column) */
-.chat-main {
+/* Phone Device Wrapper (chat-main) */
+.phone-device {
+    width: 100%;
+    max-width: 400px;
+    height: 100%;
+    max-height: 850px;
     background-color: var(--bg-main);
+    border-radius: 36px;
+    border: 10px solid #ffffff;
+    /* Inner white border */
+    box-shadow: 0 0 0 2px #E2E8F0,
+        /* Outer rim */
+        0 25px 50px -12px rgba(0, 0, 0, 0.15),
+        0 10px 25px -5px rgba(0, 0, 0, 0.05);
+    /* Premium layering shadow */
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
     position: relative;
+    padding-top: 1rem;
+    /* Space for the notch */
+}
+
+/* Elegant top notch */
+.phone-device::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 130px;
+    height: 26px;
+    background-color: #F1F5F9;
+    /* Subtle notch color */
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
+    z-index: 1000;
 }
 
 /* Right Panels */
