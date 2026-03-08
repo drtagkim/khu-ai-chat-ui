@@ -44,6 +44,8 @@ Open `http://localhost:8000` to interact with the UI.
 ## 📝 Version History (Changelog)
 
 ### v0.0.3 (Continuous Update)
+- **UI/UX**: Redesigned the main chat panel to look like a standalone mobile app with phone mockup styling (rounded corners, shadow, and notch).
+- **Feature**: Added dynamic font size controls (A-, A, A+) to the chat header for better readability.
 - **Enhancement**: Changed the overall satisfaction survey question (Likert scale) from 5-point to 7-point scale in `index.html`.
 
 ### v0.0.2
