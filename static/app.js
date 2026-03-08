@@ -5,11 +5,72 @@ document.addEventListener('DOMContentLoaded', () => {
     const chatMessages = document.getElementById('chat-messages');
     const modelSelect = document.getElementById('model-select');
 
+    // Settings Modal Logic
+    const settingsModal = document.getElementById('settings-modal');
+    const openSettingsBtn = document.getElementById('open-settings-btn');
+    const closeSettingsBtn = document.getElementById('close-settings-btn');
+
+    if (openSettingsBtn && closeSettingsBtn && settingsModal) {
+        openSettingsBtn.addEventListener('click', () => {
+            settingsModal.classList.toggle('show');
+        });
+        closeSettingsBtn.addEventListener('click', () => {
+            settingsModal.classList.remove('show');
+        });
+
+        // Close modal when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!settingsModal.contains(e.target) && !openSettingsBtn.contains(e.target)) {
+                settingsModal.classList.remove('show');
+            }
+        });
+    }
+
+    // Font Size Control Logic
+    const fontDecreaseBtn = document.getElementById('font-decrease');
+    const fontResetBtn = document.getElementById('font-reset');
+    const fontIncreaseBtn = document.getElementById('font-increase');
+    const FONT_BASE = 0.95; // rem
+    const FONT_STEP = 0.1; // rem
+    const FONT_MIN = 0.75;
+    const FONT_MAX = 1.35;
+    let currentFontSize = FONT_BASE;
+
+    function updateFontSize() {
+        document.documentElement.style.setProperty('--chat-font-size', `${currentFontSize}rem`);
+        // Force reflow for some browsers
+        document.documentElement.offsetHeight;
+    }
+
+    if (fontDecreaseBtn && fontResetBtn && fontIncreaseBtn) {
+        fontDecreaseBtn.addEventListener('click', () => {
+            if (currentFontSize > FONT_MIN + 0.01) {
+                currentFontSize -= FONT_STEP;
+                updateFontSize();
+            }
+        });
+
+        fontIncreaseBtn.addEventListener('click', () => {
+            if (currentFontSize < FONT_MAX - 0.01) {
+                currentFontSize += FONT_STEP;
+                updateFontSize();
+            }
+        });
+
+        fontResetBtn.addEventListener('click', () => {
+            currentFontSize = FONT_BASE;
+            updateFontSize();
+        });
+
+        // Initialize
+        updateFontSize();
+    }
+
     // Auto-resize textarea
-    chatInput.addEventListener('input', function() {
+    chatInput.addEventListener('input', function () {
         this.style.height = 'auto';
         this.style.height = (this.scrollHeight) + 'px';
-        
+
         // Enable/disable send button
         if (this.value.trim().length > 0) {
             sendBtn.removeAttribute('disabled');
@@ -19,7 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Handle Enter to send (Shift+Enter for newline)
-    chatInput.addEventListener('keydown', function(e) {
+    chatInput.addEventListener('keydown', function (e) {
         if (e.key === 'Enter' && !e.shiftKey) {
             e.preventDefault();
             if (this.value.trim().length > 0) {
@@ -34,15 +95,15 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!message) return;
 
         const currentModel = modelSelect.value;
-        
+
         // 1. Add User Message
         addUserMessage(message);
-        
+
         // Reset Input
         chatInput.value = '';
         chatInput.style.height = 'auto';
         sendBtn.setAttribute('disabled', 'true');
-        
+
         // 2. Add AI Loading Indicator
         const typingIndicator = addTypingIndicator();
         scrollToBottom();
@@ -61,17 +122,17 @@ document.addEventListener('DOMContentLoaded', () => {
             });
 
             const data = await response.json();
-            
+
             // 4. Remove typing indicator and show AI response
             typingIndicator.remove();
             addAiMessage(data.reply);
-            
+
         } catch (error) {
             typingIndicator.remove();
             addAiMessage("❌ 시스템 오류가 발생했습니다. 백엔드 서버 연결을 확인해주세요.");
             console.error("Chat API Error:", error);
         }
-        
+
         scrollToBottom();
     });
 
@@ -126,10 +187,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function escapeHtml(unsafe) {
         return unsafe
-             .replace(/&/g, "&amp;")
-             .replace(/</g, "&lt;")
-             .replace(/>/g, "&gt;")
-             .replace(/"/g, "&quot;")
-             .replace(/'/g, "&#039;");
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#039;");
     }
 });

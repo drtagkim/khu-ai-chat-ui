@@ -46,6 +46,26 @@
                     <span class="user-name">{{ literals.user_name }}</span>
                     <span class="user-role">{{ literals.user_role }}</span>
                 </div>
+                <button id="open-settings-btn" class="settings-trigger" title="설정"><i
+                        class="fa-solid fa-gear"></i></button>
+            </div>
+
+            <!-- Settings Modal (Bottom Left) -->
+            <div id="settings-modal" class="settings-modal">
+                <div class="settings-header">
+                    <h3><i class="fa-solid fa-sliders"></i> 환경 설정</h3>
+                    <button id="close-settings-btn" class="close-btn"><i class="fa-solid fa-xmark"></i></button>
+                </div>
+                <div class="settings-body">
+                    <div class="setting-item">
+                        <label>채팅창 글꼴 크기</label>
+                        <div class="font-control-group">
+                            <button type="button" class="font-btn" id="font-decrease">A-</button>
+                            <button type="button" class="font-btn divider" id="font-reset">A</button>
+                            <button type="button" class="font-btn divider" id="font-increase">A+</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </aside>
 
@@ -66,8 +86,8 @@
                                 <option value="en" {% if current_lang=='en' %}selected{% endif %}>English</option>
                                 <option value="zh" {% if current_lang=='zh' %}selected{% endif %}>中文</option>
                             </select>
-                            <button class="icon-btn"><i class="fa-solid fa-download"></i></button>
-                            <button class="icon-btn"><i class="fa-solid fa-gear"></i></button>
+                            <button class="icon-btn" title="Download"><i class="fa-solid fa-download"></i></button>
+                            <button class="icon-btn" title="Settings"><i class="fa-solid fa-gear"></i></button>
                         </div>
                     </header>
 
