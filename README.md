@@ -45,7 +45,9 @@ Open `http://localhost:8000` to interact with the UI.
 
 ### v0.0.3 (Continuous Update)
 - **UI/UX**: Redesigned the main chat panel to look like a standalone mobile app with phone mockup styling (rounded corners, shadow, and notch).
-- **Feature**: Added dynamic font size controls (A-, A, A+) to the chat header for better readability.
+- **Feature**: Added dynamic font size controls (A-, A, A+) which correctly scales both message bubbles and the chat input area. The controls were relocated to a neat settings modal activated via the sidebar user profile.
+- **Maintenance**: Renamed default template literals from "UI Framework Test" to "AI Chat" across languages for a sleeker identity.
+- **Bug Fix**: Implemented cache-busting queries (`?v=...`) on static assets to prevent browser caching issues during updates.
 - **Enhancement**: Changed the overall satisfaction survey question (Likert scale) from 5-point to 7-point scale in `index.html`.
 
 ### v0.0.2
