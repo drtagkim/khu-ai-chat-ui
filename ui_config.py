@@ -10,7 +10,7 @@ UI_LITERALS = {
         "btn_new_chat": "새로운 대화",
         "history_title": "최근 대화",
         "history_items": [
-            "UI 프레임워크 테스트",
+            "AI Chat",
             "Qwen 모델 실험 #1",
             "프롬프트 엔지니어링"
         ],
@@ -26,7 +26,7 @@ UI_LITERALS = {
         "user_role": "연구 디렉터",
         
         # Main Chat Area
-        "chat_header_title": "UI 프레임워크 테스트",
+        "chat_header_title": "AI Chat",
         "welcome_message": "안녕하세요, 교수님! 윤이나 조교입니다. 😉<br>여러 실험에 편하게 사용하실 수 있도록 경희대 시그니처 컬러를 적용한 **AI 챗봇 UI 프레임워크 1차 초안**을 띄웠습니다!<br>좌측 하단에서 향후 연동할 LLM(Qwen, Gemini 등)을 선택하는 파라미터 콤보박스도 준비해 두었습니다. 편하게 테스트해보세요!",
         
         # Chat Input
@@ -70,7 +70,7 @@ UI_LITERALS = {
         "btn_new_chat": "New Chat",
         "history_title": "Recent Chats",
         "history_items": [
-            "UI Framework Test",
+            "AI Chat",
             "Qwen Model Experiment #1",
             "Prompt Engineering"
         ],
@@ -86,7 +86,7 @@ UI_LITERALS = {
         "user_role": "Research Director",
         
         # Main Chat Area
-        "chat_header_title": "UI Framework Test",
+        "chat_header_title": "AI Chat",
         "welcome_message": "Hello, Professor! I am your TA, Yoon Ina. 😉<br>I've deployed the **1st Draft of the AI Chatbot UI Framework**, styled with KHU signature colors for your various experiments!<br>At the bottom left, there's a parameter combo box to select the LLM (Qwen, Gemini, etc.) to be integrated later. Feel free to test it out!",
         
         # Chat Input
@@ -130,7 +130,7 @@ UI_LITERALS = {
         "btn_new_chat": "新对话",
         "history_title": "最近对话",
         "history_items": [
-            "UI 框架测试",
+            "AI Chat",
             "Qwen 模型实验 #1",
             "提示词工程"
         ],
@@ -146,7 +146,7 @@ UI_LITERALS = {
         "user_role": "研究总监",
         
         # Main Chat Area
-        "chat_header_title": "UI 框架测试",
+        "chat_header_title": "AI Chat",
         "welcome_message": "您好，教授！我是助教尹伊娜。😉<br>我已经部署了带有庆熙大学标志颜色的 **AI 聊天机器人 UI 框架初稿**，供您进行各种实验！<br>在左下方，有一个参数组合框可选择稍后要集成的 LLM (Qwen, Gemini等)。请随时测试！",
         
         # Chat Input
