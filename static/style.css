@@ -58,6 +58,7 @@ body {
     flex-direction: column;
     padding: 1rem;
     flex-shrink: 0;
+    position: relative;
 }
 
 .sidebar-header h2 {
@@ -562,6 +563,11 @@ body {
 .user-message .message-avatar {
     background-color: var(--bg-user-msg);
     color: var(--text-primary);
+}
+
+.message-content {
+    font-size: var(--chat-font-size);
+    transition: font-size 0.2s ease;
 }
 
 .user-message .message-content {
