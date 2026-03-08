@@ -118,13 +118,80 @@
                     <header class="panel-header">
                         <h3><i class="fa-solid fa-clipboard-list"></i> {{ literals.survey_title }}</h3>
                     </header>
-                    <div class="panel-content">
+                    <div class="panel-content survey-content">
                         <p class="placeholder-text">{{ literals.survey_desc }}</p>
-                        <div class="example-form">
-                            <label>{{ literals.survey_form_label }}</label>
-                            <input type="range" min="1" max="5">
-                            <button class="khu-btn">{{ literals.btn_submit }}</button>
-                        </div>
+                        <form class="example-form">
+                            <!-- Q1: Short Answer -->
+                            <div class="form-group">
+                                <label>{{ literals.survey_q1 }}</label>
+                                <input type="text" class="form-control"
+                                    placeholder="{{ literals.survey_q1_placeholder }}">
+                            </div>
+
+                            <!-- Q2: Dropdown -->
+                            <div class="form-group">
+                                <label>{{ literals.survey_q2 }}</label>
+                                <select class="form-control">
+                                    <option value="" disabled selected>{{ literals.survey_q2_placeholder }}</option>
+                                    {% for opt in literals.survey_q2_options %}
+                                    <option value="{{ opt }}">{{ opt }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+
+                            <!-- Q3: Radio (Multiple Choice) -->
+                            <div class="form-group">
+                                <label>{{ literals.survey_q3 }}</label>
+                                <div class="radio-group">
+                                    {% for opt in literals.survey_q3_options %}
+                                    <label class="radio-label">
+                                        <input type="radio" name="q3_usage" value="{{ opt }}">
+                                        <span>{{ opt }}</span>
+                                    </label>
+                                    {% endfor %}
+                                </div>
+                            </div>
+
+                            <!-- Q4: Checkbox (Multiple Selection) -->
+                            <div class="form-group">
+                                <label>{{ literals.survey_q4 }}</label>
+                                <div class="checkbox-group">
+                                    {% for opt in literals.survey_q4_options %}
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" name="q4_models" value="{{ opt }}">
+                                        <span>{{ opt }}</span>
+                                    </label>
+                                    {% endfor %}
+                                </div>
+                            </div>
+
+                            <!-- Q5: Linear Scale -->
+                            <div class="form-group">
+                                <label>{{ literals.survey_q5 }}</label>
+                                <div class="linear-scale">
+                                    <span class="scale-label">{{ literals.survey_q5_min }}</span>
+                                    <div class="scale-options">
+                                        {% for i in range(1, 6) %}
+                                        <label class="scale-radio">
+                                            <input type="radio" name="q5_satisfaction" value="{{ i }}">
+                                            <span class="scale-num">{{ i }}</span>
+                                        </label>
+                                        {% endfor %}
+                                    </div>
+                                    <span class="scale-label">{{ literals.survey_q5_max }}</span>
+                                </div>
+                            </div>
+
+                            <!-- Q6: Paragraph (Long Answer) -->
+                            <div class="form-group">
+                                <label>{{ literals.survey_q6 }}</label>
+                                <textarea class="form-control" rows="4"
+                                    placeholder="{{ literals.survey_q6_placeholder }}"></textarea>
+                            </div>
+
+                            <button type="button" class="khu-btn submit-btn"><i class="fa-solid fa-paper-plane"></i> {{
+                                literals.btn_submit }}</button>
+                        </form>
                     </div>
                 </section>
             </aside>

@@ -34,9 +34,22 @@ UI_LITERALS = {
         "input_footer_warning": "AI는 실수할 수 있습니다. 중요한 정보는 항상 교차 검증을 권장합니다.",
         
         # Right Panels (Top) - Survey
-        "survey_title": "설문조사",
-        "survey_desc": "실험 사전/사후 설문지나 사용자 입력 폼을 배치하는 영역입니다.",
-        "survey_form_label": "참여 전 기대치 평가",
+        "survey_title": "사전/사후 설문조사",
+        "survey_desc": "Google Forms 형태의 UI 컴포넌트 세트입니다. 필요한 항목만 남기고 지워서 사용하세요.",
+        "survey_q1": "성함 (단답형)",
+        "survey_q1_placeholder": "홍길동",
+        "survey_q2": "소속 (드롭다운)",
+        "survey_q2_placeholder": "선택해주세요",
+        "survey_q2_options": ["경영대학", "공과대학", "의과대학", "기타"],
+        "survey_q3": "AI 서비스 활용 빈도 (객관식/라디오)",
+        "survey_q3_options": ["매일 사용", "주 1~2회", "월 1~2회", "전혀 사용 안 함"],
+        "survey_q4": "주로 사용하는 AI 모델 (체크박스/다중선택)",
+        "survey_q4_options": ["ChatGPT", "Claude", "Gemini", "Qwen", "기타"],
+        "survey_q5": "전반적인 만족도 (선형 배율)",
+        "survey_q5_min": "매우 불만족",
+        "survey_q5_max": "매우 만족",
+        "survey_q6": "추가 건의사항이나 피드백을 자유롭게 적어주세요. (장문형)",
+        "survey_q6_placeholder": "여기에 답변을 입력하세요...",
         "btn_submit": "제출하기",
         
         # Right Panels (Bottom) - Additional Questions
@@ -44,7 +57,9 @@ UI_LITERALS = {
         "extra_panel_desc": "실험 중 부가적인 질문, PDF 문헌 정보, 기타 메타데이터를 표시하는 용도로 사용됩니다.",
         "extra_files": [
             "관련 논문 자료 1.pdf",
-            "실험 가이드라인.pdf"
+            "실험 가이드라인.pdf",
+            "추가_설명서.docx",
+            "data_summary.csv"
         ]
     },
     "en": {
@@ -79,9 +94,22 @@ UI_LITERALS = {
         "input_footer_warning": "AI can make mistakes. Cross-verification of important information is always recommended.",
         
         # Right Panels (Top) - Survey
-        "survey_title": "Survey",
-        "survey_desc": "This area is for placing pre/post-experiment questionnaires or user input forms.",
-        "survey_form_label": "Pre-participation Expectation Rating",
+        "survey_title": "Pre/Post Survey",
+        "survey_desc": "Google Forms style UI components. Keep what you need and remove the rest.",
+        "survey_q1": "Name (Short answer)",
+        "survey_q1_placeholder": "John Doe",
+        "survey_q2": "Department (Dropdown)",
+        "survey_q2_placeholder": "Please select",
+        "survey_q2_options": ["Business", "Engineering", "Medicine", "Other"],
+        "survey_q3": "Frequency of AI Service Usage (Multiple choice)",
+        "survey_q3_options": ["Daily", "1-2 times/week", "1-2 times/month", "Never"],
+        "survey_q4": "Primary AI Models (Checkboxes)",
+        "survey_q4_options": ["ChatGPT", "Claude", "Gemini", "Qwen", "Other"],
+        "survey_q5": "Overall Satisfaction (Linear scale)",
+        "survey_q5_min": "Very Dissatisfied",
+        "survey_q5_max": "Very Satisfied",
+        "survey_q6": "Please feel free to write any additional suggestions or feedback. (Paragraph)",
+        "survey_q6_placeholder": "Your answer...",
         "btn_submit": "Submit",
         
         # Right Panels (Bottom) - Additional Questions
@@ -89,7 +117,9 @@ UI_LITERALS = {
         "extra_panel_desc": "Used for displaying additional questions, PDF literature info, and other metadata during the experiment.",
         "extra_files": [
             "Related Literature 1.pdf",
-            "Experiment Guidelines.pdf"
+            "Experiment Guidelines.pdf",
+            "Extra_Manual.docx",
+            "data_summary.csv"
         ]
     },
     "zh": {
@@ -124,9 +154,22 @@ UI_LITERALS = {
         "input_footer_warning": "AI 可能会犯错。建议务必交叉验证重要信息。",
         
         # Right Panels (Top) - Survey
-        "survey_title": "问卷调查",
-        "survey_desc": "此区域用于放置实验前/后问卷或用户输入表单。",
-        "survey_form_label": "参与前预期评分",
+        "survey_title": "事前/事后 调查",
+        "survey_desc": "Google Forms 风格的 UI 组件。保留您需要的，删除其余的。",
+        "survey_q1": "姓名 (简答)",
+        "survey_q1_placeholder": "张三",
+        "survey_q2": "部门 (下拉菜单)",
+        "survey_q2_placeholder": "请选择",
+        "survey_q2_options": ["商学院", "工学院", "医学院", "其他"],
+        "survey_q3": "AI 服务使用频率 (单选)",
+        "survey_q3_options": ["每天", "每周 1~2 次", "每月 1~2 次", "从不"],
+        "survey_q4": "主要使用的 AI 模型 (复选框)",
+        "survey_q4_options": ["ChatGPT", "Claude", "Gemini", "Qwen", "其他"],
+        "survey_q5": "总体满意度 (线性刻度)",
+        "survey_q5_min": "非常不满意",
+        "survey_q5_max": "非常满意",
+        "survey_q6": "请随时写下任何其他建议或反馈。 (段落)",
+        "survey_q6_placeholder": "您的回答...",
         "btn_submit": "提交",
         
         # Right Panels (Bottom) - Additional Questions
@@ -134,7 +177,9 @@ UI_LITERALS = {
         "extra_panel_desc": "用于在实验期间显示附加问题、PDF 文献信息和其他元数据。",
         "extra_files": [
             "相关文献资料 1.pdf",
-            "实验指南.pdf"
+            "实验指南.pdf",
+            "附加手册.docx",
+            "data_summary.csv"
         ]
     }
 }
