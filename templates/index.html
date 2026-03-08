@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ literals.page_title }}</title>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2><i class="fa-solid fa-graduation-cap"></i> {{ literals.sidebar_brand }}</h2>
+            </div>
+            <button class="new-chat-btn"><i class="fa-solid fa-plus"></i> {{ literals.btn_new_chat }}</button>
+            <div class="chat-history">
+                <p class="history-title">{{ literals.history_title }}</p>
+                <ul class="history-list">
+                    {% for item in literals.history_items %}
+                    <li{% if loop.index==1 %} class="active" {% endif %}><i class="fa-regular fa-message"></i> {{ item
+                        }}</li>
+                        {% endfor %}
+                </ul>
+            </div>
+
+            <div class="model-selector">
+                <label for="model-select">{{ literals.llm_select_label }}</label>
+                <select id="model-select">
+                    {% for key, val in literals.llm_options.items() %}
+                    <option value="{{ key }}">{{ val }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="user-profile">
+                <div class="avatar"><i class="fa-solid fa-user-tie"></i></div>
+                <div class="user-info">
+                    <span class="user-name">{{ literals.user_name }}</span>
+                    <span class="user-role">{{ literals.user_role }}</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content Area (2-Column Layout) -->
+        <div class="main-content">
+            <!-- Left Column: Chat Area -->
+            <main class="chat-main left-column">
+                <!-- Header -->
+                <header class="chat-header">
+                    <h3>{{ literals.chat_header_title }}</h3>
+                    <div class="header-actions">
+                        <!-- Language Selector -->
+                        <select id="lang-select" class="lang-selector"
+                            onchange="window.location.href='/?lang=' + this.value;">
+                            <option value="ko" {% if current_lang=='ko' %}selected{% endif %}>한국어</option>
+                            <option value="en" {% if current_lang=='en' %}selected{% endif %}>English</option>
+                            <option value="zh" {% if current_lang=='zh' %}selected{% endif %}>中文</option>
+                        </select>
+                        <button class="icon-btn"><i class="fa-solid fa-download"></i></button>
+                        <button class="icon-btn"><i class="fa-solid fa-gear"></i></button>
+                    </div>
+                </header>
+
+                <!-- Chat Messages -->
+                <div class="chat-messages" id="chat-messages">
+                    <!-- Welcome Message -->
+                    <div class="message ai-message">
+                        <div class="message-avatar"><i class="fa-solid fa-robot"></i></div>
+                        <div class="message-content">
+                            {{ literals.welcome_message | safe }}
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Input Area -->
+                <div class="chat-input-container">
+                    <form id="chat-form">
+                        <div class="input-wrapper">
+                            <textarea id="chat-input" placeholder="{{ literals.input_placeholder }}"
+                                rows="1"></textarea>
+                            <button type="submit" id="send-btn" disabled><i
+                                    class="fa-solid fa-paper-plane"></i></button>
+                        </div>
+                        <div class="input-footer">
+                            {{ literals.input_footer_warning }}
+                        </div>
+                    </form>
+                </div>
+            </main>
+
+            <!-- Right Column: Additional Tasks (2-Row Layout) -->
+            <aside class="right-column">
+                <!-- Top Row (formerly Bottom Row): Additional Questions -->
+                <section class="right-top-panel">
+                    <header class="panel-header">
+                        <h3><i class="fa-solid fa-file-circle-question"></i> {{ literals.extra_panel_title }}</h3>
+                    </header>
+                    <div class="panel-content">
+                        <p class="placeholder-text">{{ literals.extra_panel_desc }}</p>
+                        <div class="example-list">
+                            {% for file in literals.extra_files %}
+                            <div class="example-item"><i class="fa-regular fa-file-pdf"></i> {{ file }}</div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Bottom Row (formerly Top Row): Survey -->
+                <section class="right-bottom-panel">
+                    <header class="panel-header">
+                        <h3><i class="fa-solid fa-clipboard-list"></i> {{ literals.survey_title }}</h3>
+                    </header>
+                    <div class="panel-content">
+                        <p class="placeholder-text">{{ literals.survey_desc }}</p>
+                        <div class="example-form">
+                            <label>{{ literals.survey_form_label }}</label>
+                            <input type="range" min="1" max="5">
+                            <button class="khu-btn">{{ literals.btn_submit }}</button>
+                        </div>
+                    </div>
+                </section>
+            </aside>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="/static/app.js"></script>
+</body>
+
+</html>
