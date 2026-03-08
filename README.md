@@ -38,3 +38,17 @@ Open `http://localhost:8000` to interact with the UI.
 - `static/style.css`: Stylesheet for theming and split-layout rendering
 - `static/app.js`: Client-side script handling typing effects and bot communication
 - `ui_config.py`: Dictionary containing multi-language UI literals
+
+---
+
+## 📝 Version History (Changelog)
+
+### v0.0.3 (Continuous Update)
+- **Enhancement**: Changed the overall satisfaction survey question (Likert scale) from 5-point to 7-point scale in `index.html`.
+
+### v0.0.2
+- **Feature**: Added comprehensive Google Forms-style survey UI components to the bottom-right panel.
+- **UI/UX**: Implemented independent vertical scrolling for the survey panel.
+
+### v0.0.1
+- **Initial Release**: Basic 2-column layout AI Chat UI framework with multi-language (ko, en, zh) support.
